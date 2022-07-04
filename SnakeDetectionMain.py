@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
-import tensorflow
+import tensorflow as tf
+from tensorflow import keras
 def main():
     st.title("Snake Species Classification")
     st.header("this is header")
