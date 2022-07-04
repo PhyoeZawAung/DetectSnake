@@ -82,7 +82,7 @@ def shoot_photo():
         st.sidebar.success("Photo Shooted successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return snake_image
+    return img
 
 def upload_photo():
     snake_image = st.file_uploader("Upload the file")
@@ -90,6 +90,6 @@ def upload_photo():
         st.sidebar.success("Photo Uploaded successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return snake_image
+    return img
 
 main()
