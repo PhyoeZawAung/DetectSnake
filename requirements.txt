@@ -3,6 +3,6 @@ matplotlib
 tensorflow
 runipy
 opencv-python-headless
-streamlit==1.8.1
+streamlit
 pandas
 streamlit-option-menu
