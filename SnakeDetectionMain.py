@@ -2,6 +2,12 @@ import streamlit as st
 from PIL import Image
 import tensorflow as tf
 from tensorflow import keras
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.models import Sequential
+
+from tensorflow.keras.models import load_model
+@st.cache(allow_output_mutation=True)
 def main():
     st.title("Snake Species Classification")
     st.header("this is header")
