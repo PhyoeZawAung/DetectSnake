@@ -40,10 +40,10 @@ def prediction(img, weights_file):#this is copy file of road sign project
     model = keras.models.load_model(weights_file)
    
     # Create the array of the right shape to feed into the keras model
-    data = np.ndarray(shape=(1, 244, 244, 3), dtype=np.float32)
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     image = img
     # image sizing
-    size = (244, 244)
+    size = (224, 224)
     image = ImageOps.fit(image, size, Image.ANTIALIAS)
 
     # turn the image into a numpy array
