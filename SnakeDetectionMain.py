@@ -31,7 +31,7 @@ def main():
         print("Classifing the snake photo in the model")
         st.write("Classifying.....")
         class_names = ['class-1','class-2','class-3', 'class-4', 'class-5']
-        with st.spinner("Classifying snake specie")
+        with st.spinner("Classifying snake specie"):
            Ans = prediction(photo,"snake_species.h5")
         string=class_names[np.argmax(Ans)]
         st.header(string)
