@@ -58,7 +58,7 @@ def prediction(img, weights_file):#this is copy file of road sign project
     prediction = model.predict(data)
    # prediction_percentage = model.predict(data)
     #prediction = prediction_percentage.round()
-    #return prediction
+    return prediction
 
     #return prediction, prediction_percentage
 
