@@ -5,9 +5,9 @@ def main():
                                          ('ပုံကိုတင်မည် ', 'ပုံရိုက်မည် '))
 
     if upload_option == 'ပုံကိုတင်မည် ':
-        upload_photo()
+       photo = upload_photo()
     else:
-        shoot_photo()
+        photo = shoot_photo()
     if st.button("ခွဲခြားမည် "):
         print("Classifing the snake photo in the model")
         st.write("ခွဲခြားနေသည်........")
