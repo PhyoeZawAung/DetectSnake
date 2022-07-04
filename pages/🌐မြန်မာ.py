@@ -1,3 +1,4 @@
+import streamlit as st
 def main():
     upload_option = st.sidebar.selectbox("ပုံတင်ရန်ရွေးချယ်ပါ‌",
                                          ('ပုံကိုတင်မည် ', 'ပုံရိုက်မည် '))
