@@ -13,7 +13,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 
-from tensorflow.keras.models import 
+from tensorflow.keras.models import load_model
 def main():
     upload_option = st.sidebar.selectbox("ပုံတင်ရန်ရွေးချယ်ပါ‌",
                                          ('ပုံကိုတင်မည် ', 'ပုံရိုက်မည် '))
