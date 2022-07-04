@@ -38,33 +38,25 @@ def main():
 def prediction(img, weights_file):#this is copy file of road sign project
     # Load the model
     model = keras.models.load_model(weights_file)
-    st.write("model loaded")
-    img = tf.keras.preprocessing.image.load_img(img, target_size=(244,244))#target size ကို သတိထားပါ
-    st.write(plt.imshow(img))
-    x = tf.keras.preprocessing.image.img_to_array(img)
-    x = np.expand_dims(x,axis=0)
-    x /= 255.0
-    images = np.vstack([x])# [1 2 3 4 5 6]
-    classes = model.predict(x)
-    return calsses
+   
     # Create the array of the right shape to feed into the keras model
-    #data = np.ndarray(shape=(1, 244, 244, 3), dtype=np.float32)
-   # image = img
+    data = np.ndarray(shape=(1, 244, 244, 3), dtype=np.float32)
+    image = img
     # image sizing
-    #size = (244, 244)
-    #image = ImageOps.fit(image, size, Image.ANTIALIAS)
+    size = (244, 244)
+    image = ImageOps.fit(image, size, Image.ANTIALIAS)
 
     # turn the image into a numpy array
-    #image_array = np.asarray(image)
+    image_array = np.asarray(image)
     # Normalize the image
-    #normalized_image_array = (image_array.astype(np.float32) / 255)
+    normalized_image_array = (image_array.astype(np.float32) / 255)
 
     # Load the image into the array
-    #data[0] = normalized_image_array
+    data[0] = normalized_image_array
 
     # run the inference
-    #prediction = model.predict(data)
-    #prediction_percentage = model.predict(data)
+    prediction = model.predict(data)
+   # prediction_percentage = model.predict(data)
     #prediction = prediction_percentage.round()
     #return prediction
 
@@ -82,7 +74,7 @@ def shoot_photo():
         st.sidebar.success("Photo Shooted successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return snake_image
+    return img
 
 def upload_photo():
     snake_image = st.file_uploader("Upload the file")
@@ -90,6 +82,6 @@ def upload_photo():
         st.sidebar.success("Photo Uploaded successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return snake_image
+    return img
 
 main()
