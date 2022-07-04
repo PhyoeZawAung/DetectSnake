@@ -26,7 +26,7 @@ def main():
     if upload_option == 'Upload':
         photo = upload_photo()
     else:
-        photo =shoot_photo()
+        photo = shoot_photo()
     if st.button("Classifiy snake"):
         print("Classifing the snake photo in the model")
         st.write("Classifying.....")
@@ -74,7 +74,7 @@ def shoot_photo():
         st.sidebar.success("Photo Shooted successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return img
+        return img
 
 def upload_photo():
     snake_image = st.file_uploader("Upload the file")
@@ -82,6 +82,6 @@ def upload_photo():
         st.sidebar.success("Photo Uploaded successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return img
+        return img
 
 main()
