@@ -1,7 +1,3 @@
-import streamlit as st
-from PIL import Image
-
-
 def main():
     upload_option = st.sidebar.selectbox("ပုံတင်ရန်ရွေးချယ်ပါ‌",
                                          ('ပုံကိုတင်မည် ', 'ပုံရိုက်မည် '))
@@ -10,7 +6,7 @@ def main():
         upload_photo()
     else:
         shoot_photo()
-    if st.button("ခွဲခြားမည"):
+    if st.button("ခွဲခြားမည် "):
         print("Classifing the snake photo in the model")
         st.write("ခွဲခြားနေသည်........")
         class_names = ['class-1','class-2','class-3', 'class-4', 'class-5']
@@ -57,7 +53,7 @@ def shoot_photo():
         st.sidebar.success("ပုံရိုက်ခြင်းအောင်မြင်ပါသည")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return snake_image
+        return img
 
 
 def upload_photo():
@@ -66,7 +62,7 @@ def upload_photo():
         st.sidebar.success("ဖိုင်တင်ခြင်းအောင်မြင်ပါသည်")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return snake_image
+        return img
 
 
 main()
