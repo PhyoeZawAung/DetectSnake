@@ -1,5 +1,19 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
+
+import tensorflow as tf
+import cv2
+import pandas as pd
 from PIL import Image, ImageOps
+import numpy as np
+import matplotlib.pyplot as plt
+import PIL
+
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.models import Sequential
+
+from tensorflow.keras.models import 
 def main():
     upload_option = st.sidebar.selectbox("ပုံတင်ရန်ရွေးချယ်ပါ‌",
                                          ('ပုံကိုတင်မည် ', 'ပုံရိုက်မည် '))
