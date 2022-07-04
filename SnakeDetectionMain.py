@@ -38,9 +38,9 @@ def main():
 def prediction(img, weights_file):#this is copy file of road sign project
     # Load the model
     model = keras.models.load_model(weights_file)
-    
+    st.write("model loaded")
     img = tf.keras.preprocessing.image.load_img(img, target_size=(244,244))#target size ကို သတိထားပါ
-    plt.imshow(img)
+    st.write(plt.imshow(img))
     x = tf.keras.preprocessing.image.img_to_array(img)
     x = np.expand_dims(x,axis=0)
     x /= 255.0
@@ -82,7 +82,7 @@ def shoot_photo():
         st.sidebar.success("Photo Shooted successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return img
+    return snake_image
 
 def upload_photo():
     snake_image = st.file_uploader("Upload the file")
@@ -90,6 +90,6 @@ def upload_photo():
         st.sidebar.success("Photo Uploaded successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
-    return img
+    return snake_image
 
 main()
