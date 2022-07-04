@@ -29,8 +29,8 @@ def main():
         photo = shoot_photo()
     if st.button("Classifiy snake"):
         print("Classifing the snake photo in the model")
-        st.write("Classifying.....")
-        class_names = ['class-1','class-2','class-3', 'class-4', 'class-5']
+       
+        class_names = ['Nerodia sipedon - Nothern Watersnake','Thamnophis sirtalis - Common Garter snake','Storeria dekayi -DeKay\'s Brown snake', 'Patherophis obsoletus - Black Rat snake', 'Cortalus atrox - Western Diamondback rattlesnake']
         with st.spinner("Classifying snake specie"):
            Ans = prediction(photo,"snake_species.h5")
         string=class_names[np.argmax(Ans)]
