@@ -40,6 +40,7 @@ def prediction(img, weights_file):#this is copy file of road sign project
     model = keras.models.load_model(weights_file)
     
     img = tf.keras.preprocessing.image.load_img(img, target_size=(244,244))#target size ကို သတိထားပါ
+    plt.imshow(img)
     x = tf.keras.preprocessing.image.img_to_array(img)
     x = np.expand_dims(x,axis=0)
     x /= 255.0
