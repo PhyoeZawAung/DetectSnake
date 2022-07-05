@@ -51,9 +51,12 @@ def main():
                    'Cortalus atrox - Western Diamondback rattlesnake']
             with st.spinner("Classifying snake specie"):
                 Ans = prediction(photo, "snake_species.h5")
-            string = class_names[np.argmax(Ans)]
-            st.header(string)
-            st.write(Ans)
+            if np.max(ANS) < 0.6 :
+                st.warning("Please shoot snake photo clearly")
+            else:
+                string = class_names[np.argmax(Ans)]
+                st.header(string)
+                st.write(Ans)
         else:
             st.warning("Please Upload or Shoot photo before classifying")
     if st.sidebar.button("Contect Developer"):
