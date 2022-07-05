@@ -68,8 +68,8 @@ def main():
 
             st.markdown(is_venomous[res], unsafe_allow_html=True)
             if res != 'Others':
-                st.write("For More Information. Check out this [link]("+links[res]+")")
-            st.markdown("<span style='color: darkorange'>Warning: A snake bite should always be taken to a hospital. Snake bites require hospitalization and close monitoring of the patient, whether the sanke is venomous or not.</span>", unsafe_allow_html=True)
+                st.write("နောက်ထပ်အကြောင်းအရာများသိလိုလျှင်[link]("+links[res]+")")
+            st.markdown("<span style='color: darkorange'>Warning: ‌မြွေကိုက်ခံရလျှင် ဆေးရုံသိူ့ အမြန်ဆုံးသွားသင့်ပါသည် ။ မြွေကိုက်ခံရခြင်းသည် အဆိပ်ရှိမရှိ လူနာအား ဆေးရုံတင်ထားရပြီး အနီးကပ်စောင့်ကြည့်ရန် လိုအပ်ပါသည်။.</span>", unsafe_allow_html=True)
 
             st.markdown("""---""")
             st.header("Confidence Chart")
@@ -132,10 +132,19 @@ button[type=submit]:hover
     components.html(form_submit, height=500)
 
 
-def prediction(img, weights_file):  # this is copy file of road sign project
+def prediction(img, weights_file):#this is copy file of road sign project
+
+    class_names = [
+            "Nerodia sipedon - Northern Watersnake",
+            "Thamnophis sirtalis - Common Garter snake",
+            "Storeria dekayi - DeKay's Brown snake", 
+            "Patherophis obsoletus - Black Rat snake", 
+            "Crotalus atrox - Western Diamondback rattlesnake",
+            'Others'
+        ]
     # Load the model
     model = keras.models.load_model(weights_file)
-
+   
     # Create the array of the right shape to feed into the keras model
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     image = img
@@ -152,13 +161,23 @@ def prediction(img, weights_file):  # this is copy file of road sign project
     data[0] = normalized_image_array
 
     # run the inference
-    prediction = model.predict(data)
-    # prediction_percentage = model.predict(data)
-    # prediction = prediction_percentage.round()
+    prediction = model.predict(data)*100
+
+    prediction = pd.DataFrame(np.round(prediction,1),columns = class_names).transpose()
+
+    prediction.columns = ['values']
+
+    prediction  = prediction.nlargest(6, 'values')
+
+    prediction = prediction.reset_index()
+
+    prediction.columns = ['name', 'values']
+
+   # prediction_percentage = model.predict(data)
+    #prediction = prediction_percentage.round()
     return prediction
 
-    # return prediction, prediction_percentage
-
+    #return prediction, prediction_percentage
 
 def shoot_photo():
     snake_image = st.camera_input("မြွေကို အလယ်တွင်ထား ရိုက်ပါ")
