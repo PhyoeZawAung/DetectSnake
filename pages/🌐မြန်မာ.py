@@ -50,7 +50,7 @@ def main():
             st.header(string)
             st.write(Ans)
         else:
-            st.warning("Please Upload or shoot photo first before classifying")
+            st.warning("ပုံတင်ခြင်း (သို့မဟုတ်) ပုံရိုက်ခြင်းကို အရင်ပြုလုပ်ပါ ")
     if st.sidebar.button("ဆက်သွယ်ရန် "):
         contact()
 
