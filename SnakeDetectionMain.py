@@ -36,7 +36,7 @@ def main():
         photo = upload_photo()
     else:
         photo = shoot_photo()
-    if st.button("Classifiy snake"):
+    if st.button("Classifiy snakes"):
         if photo is None:
             st.warning("Please Upload or Shoot photo before classifying")
         else:
@@ -190,7 +190,7 @@ def prediction(img, weights_file):#this is copy file of road sign project
 def shoot_photo():
     snake_image = st.camera_input("Shoot photo to calssify snake")
     if snake_image is not None:
-        st.sidebar.success("Photo Shooted successfully")
+        st.success("Photo Shooted successfully")
         img = Image.open(snake_image)
         st.sidebar.image(img)
         return img
@@ -198,7 +198,7 @@ def shoot_photo():
 def upload_photo():
     snake_image = st.file_uploader("Upload the file")
     if snake_image is not None:
-        st.sidebar.success("Photo Uploaded successfully")
+        st.success("Photo Uploaded successfully")
         img = Image.open(snake_image)
         st.image(img)
         return img
