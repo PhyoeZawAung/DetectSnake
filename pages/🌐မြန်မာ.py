@@ -182,7 +182,7 @@ def prediction(img, weights_file):#this is copy file of road sign project
 def shoot_photo():
     snake_image = st.camera_input("မြွေကို အလယ်တွင်ထား ရိုက်ပါ")
     if snake_image is not None:
-        st.sidebar.success("ပုံရိုက်ခြင်းအောင်မြင်ပါသည")
+        st.sidebar.success("ပုံရိုက်ခြင်းအောင်မြင်ပါသည် ")
         img = Image.open(snake_image)
         st.sidebar.image(img)
         return img
