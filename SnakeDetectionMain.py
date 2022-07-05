@@ -37,7 +37,9 @@ def main():
     else:
         photo = shoot_photo()
     if st.button("Classifiy snake"):
-        if photo is not None:
+        if photo is None:
+            st.warning("Please Upload or Shoot photo before classifying")
+        else:
             print("Classifing the snake photo in the model")
 
 
