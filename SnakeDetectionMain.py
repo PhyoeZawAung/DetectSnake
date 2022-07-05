@@ -198,7 +198,7 @@ def upload_photo():
     if snake_image is not None:
         st.sidebar.success("Photo Uploaded successfully")
         img = Image.open(snake_image)
-        st.sidebar.image(img)
+        st.image(img)
         return img
 
 main()
