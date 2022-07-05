@@ -15,6 +15,19 @@ from tensorflow.keras.models import Sequential
 
 from tensorflow.keras.models import load_model
 def main():
+    st.set_page_config(
+        page_title="မြွေအမျိုးအစားခွဲခြားခြင်း ",
+        page_icon="🐍",
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items={
+
+            'About': """လယ်သမားများနှင့် ပညာရေး အတွက် အသုံးပြုရန် ဖြစ်ပါသည်။
+            မြွေအမျိုးအစား ၅ မျိုး ကိူ ခွဲခြားပေးနိုင်ပါသည်။
+            ကျန်သောအမျိုးအစားများ အတွက်လည်း ဆက်လက်လုပ်ဆောင်နေပါသည်။
+           """,
+        }
+    )
     upload_option = st.sidebar.selectbox("ပုံတင်ရန်ရွေးချယ်ပါ‌",
                                          ('ပုံကိုတင်မည် ', 'ပုံရိုက်မည် '))
 
@@ -31,9 +44,51 @@ def main():
         string=class_names[np.argmax(Ans)]
         st.header(string)
         st.write(Ans)
+     if st.sidebar.button("ဆက်သွယ်ရန် "):
+        contact()   
         
-        
+def contact():
 
+    form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
+     <input type="text" name="name" placeholder="အမည် "required>
+     <input type="email" name="email" placeholder="အီးမေး">
+     <textarea id="subject" name="subject" placeholder="အကြောင်းအရာ......." style="height:200px"></textarea>
+     <input type="hidden" name="_captcha" value="false">
+     <button type="submit">ပေးပို့မည် </button>
+     </form>
+     <style>
+
+input[type=text],input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+button[type=submit] 
+{
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover
+{
+  background-color: #45a049;
+}
+
+
+</style>
+     """
+    #st.markdown(form_submit,unsafe_allow_html=True)
+    components.html(form_submit,height =500)
 
 
 def prediction(img, weights_file):#this is copy file of road sign project
