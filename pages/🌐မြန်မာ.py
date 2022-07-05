@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import streamllit.compontents.v1 as components
+import streamlit.components.v1 as components
 import tensorflow as tf
 import cv2
 import pandas as pd
