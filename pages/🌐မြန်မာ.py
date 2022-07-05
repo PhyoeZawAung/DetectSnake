@@ -8,7 +8,7 @@ from PIL import Image, ImageOps
 import numpy as np
 import matplotlib.pyplot as plt
 import PIL
-
+import seaborn as sns
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
@@ -40,7 +40,7 @@ def main():
     if st.button("ခွဲခြားမည် "):
         if photo is not None:
             print("Classifing the snake photo in the model")
-            with st.spinner("Classifying snake specie"):
+            with st.spinner("ခွဲခြားနေသည်......"):
                 Ans = prediction(photo, "snake_species (1).h5")
 
 
@@ -62,7 +62,7 @@ def main():
             "Storeria dekayi - DeKay's Brown snake": "<span style='color: green'>Non-venomous</span>",
             'Patherophis obsoletus - Black Rat snake': "<span style='color: green'>Non-venomous</span>",
             'Crotalus atrox - Western Diamondback rattlesnake': "<span style='color: red'>Venomous</span>",
-            'Others': 'Sorry... The species in the image cannot be detected by our model.',
+            'Others': 'ဝမ်းနည်းပါတယ်... ပုံထဲက မျိုးစိတ်တွေကို ကျွန်ုပ်တို့ရဲ့ မော်ဒယ်က ရှာမတွေ့နိုင်ပါဘူး။',
             }
     
 
@@ -193,7 +193,7 @@ def upload_photo():
     if snake_image is not None:
         st.sidebar.success("ဖိုင်တင်ခြင်းအောင်မြင်ပါသည်")
         img = Image.open(snake_image)
-        st.sidebar.image(img)
+        st.image(img)
         return img
 
 
