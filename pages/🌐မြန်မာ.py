@@ -41,7 +41,7 @@ def main():
         if photo is not None:
             print("Classifing the snake photo in the model")
             with st.spinner("Classifying snake specie"):
-                Ans = prediction(photo, "snake_species(1).h5")
+                Ans = prediction(photo, "snake_species (1).h5")
 
 
             res = Ans['name'].iat[0];
