@@ -50,7 +50,7 @@ def main():
                    'Storeria dekayi -DeKay\'s Brown snake', 'Patherophis obsoletus - Black Rat snake',
                    'Cortalus atrox - Western Diamondback rattlesnake']
             with st.spinner("Classifying snake specie"):
-                Ans = prediction(photo, "snake_species.h5")
+                Ans = prediction(photo, "snake_species(1).h5")
             if np.max(Ans) < 0.7 :
                 st.warning("Please shoot snake photo clearly")
             else:
