@@ -15,8 +15,9 @@ from tensorflow.keras.models import Sequential
 
 from tensorflow.keras.models import load_model
 
+
 def main():
-     st.set_page_config(
+    st.set_page_config(
         page_title="Snake Classification By Team PeniCol",
         page_icon="🐍",
         layout="wide",
@@ -27,13 +28,14 @@ def main():
             This app can classify the major 5 snake species.
             We also develop for the rest of species. We never stop develop.""",
         }
-     )
-     st.title("Snake Species Classification")
-     st.header("this is header")
-     st.subheader('This is a subheader')
-     st.caption('This is a string that explains something above.')
-     upload_option = st.sidebar.selectbox("How you want to make photo",
-                                         ('Upload','Shoot Photo'))
+    )
+    st.title("Snake Species Classification")
+    st.header("this is header")
+    st.subheader('This is a subheader')
+    st.caption('This is a string that explains something above.')
+    upload_option = st.sidebar.selectbox("How you want to make photo",
+                                         ('Upload', 'Shoot Photo'))
+
 
     if upload_option == 'Upload':
         photo = upload_photo()
@@ -41,19 +43,21 @@ def main():
         photo = shoot_photo()
     if st.button("Classifiy snake"):
         print("Classifing the snake photo in the model")
-       
-        class_names = ['Nerodia sipedon - Nothern Watersnake','Thamnophis sirtalis - Common Garter snake','Storeria dekayi -DeKay\'s Brown snake', 'Patherophis obsoletus - Black Rat snake', 'Cortalus atrox - Western Diamondback rattlesnake']
+
+        class_names = ['Nerodia sipedon - Nothern Watersnake', 'Thamnophis sirtalis - Common Garter snake',
+                   'Storeria dekayi -DeKay\'s Brown snake', 'Patherophis obsoletus - Black Rat snake',
+                   'Cortalus atrox - Western Diamondback rattlesnake']
         with st.spinner("Classifying snake specie"):
-           Ans = prediction(photo,"snake_species.h5")
-        string=class_names[np.argmax(Ans)]
+            Ans = prediction(photo, "snake_species.h5")
+        string = class_names[np.argmax(Ans)]
         st.header(string)
         st.write(Ans)
-        
+
     if st.sidebar.button("Contect Developer"):
         contact()
-        
-def contact():
 
+
+def contact():
     form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
      <input type="text" name="name" placeholder=" Name "required>
      <input type="email" name="email" placeholder="Email Address">
@@ -92,14 +96,14 @@ button[type=submit]:hover
 
 </style>
      """
-    #st.markdown(form_submit,unsafe_allow_html=True) this is not work css of button class
-    components.html(form_submit,height =500)
+    # st.markdown(form_submit,unsafe_allow_html=True) this is not work css of button class
+    components.html(form_submit, height=500)
 
 
-def prediction(img, weights_file):#this is copy file of road sign project
+def prediction(img, weights_file):  # this is copy file of road sign project
     # Load the model
     model = keras.models.load_model(weights_file)
-   
+
     # Create the array of the right shape to feed into the keras model
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     image = img
@@ -117,17 +121,12 @@ def prediction(img, weights_file):#this is copy file of road sign project
 
     # run the inference
     prediction = model.predict(data)
-   # prediction_percentage = model.predict(data)
-    #prediction = prediction_percentage.round()
+    # prediction_percentage = model.predict(data)
+    # prediction = prediction_percentage.round()
     return prediction
 
-    #return prediction, prediction_percentage
+    # return prediction, prediction_percentage
 
-
-
-
-
-     
 
 def shoot_photo():
     snake_image = st.camera_input("Shoot photo to calssify snake")
@@ -137,6 +136,7 @@ def shoot_photo():
         st.sidebar.image(img)
         return img
 
+
 def upload_photo():
     snake_image = st.file_uploader("Upload the file")
     if snake_image is not None:
@@ -144,5 +144,6 @@ def upload_photo():
         img = Image.open(snake_image)
         st.sidebar.image(img)
         return img
+
 
 main()
