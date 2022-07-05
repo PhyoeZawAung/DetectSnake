@@ -38,16 +38,19 @@ def main():
     else:
         photo = shoot_photo()
     if st.button("ခွဲခြားမည် "):
-        print("Classifing the snake photo in the model")
+        if photo is not None:
+            print("Classifing the snake photo in the model")
 
-        class_names = ['Nerodia sipedon - Nothern Watersnake', 'Thamnophis sirtalis - Common Garter snake',
+            class_names = ['Nerodia sipedon - Nothern Watersnake', 'Thamnophis sirtalis - Common Garter snake',
                        'Storeria dekayi -DeKay\'s Brown snake', 'Patherophis obsoletus - Black Rat snake',
                        'Cortalus atrox - Western Diamondback rattlesnake']
-        with st.spinner("ခွဲခြားနေသည်........"):
-            Ans = prediction(photo, "snake_species.h5")
-        string = class_names[np.argmax(Ans)]
-        st.header(string)
-        st.write(Ans)
+            with st.spinner("ခွဲခြားနေသည်........"):
+                Ans = prediction(photo, "snake_species.h5")
+            string = class_names[np.argmax(Ans)]
+            st.header(string)
+            st.write(Ans)
+        else:
+            st.warning("Please Upload or shoot photo first before classifying")
     if st.sidebar.button("ဆက်သွယ်ရန် "):
         contact()
 
