@@ -28,11 +28,11 @@ def main():
             We also develop for the rest of species. We never stop develop.""",
         }
      )
-    st.title("Snake Species Classification")
-    st.header("this is header")
-    st.subheader('This is a subheader')
-    st.caption('This is a string that explains something above.')
-    upload_option = st.sidebar.selectbox("How you want to make photo",
+     st.title("Snake Species Classification")
+     st.header("this is header")
+     st.subheader('This is a subheader')
+     st.caption('This is a string that explains something above.')
+     upload_option = st.sidebar.selectbox("How you want to make photo",
                                          ('Upload','Shoot Photo'))
 
     if upload_option == 'Upload':
