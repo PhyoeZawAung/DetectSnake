@@ -40,15 +40,49 @@ def main():
     if st.button("ခွဲခြားမည် "):
         if photo is not None:
             print("Classifing the snake photo in the model")
+            with st.spinner("Classifying snake specie"):
+                Ans = prediction(photo, "snake_species(1).h5")
 
-            class_names = ['Nerodia sipedon - Nothern Watersnake', 'Thamnophis sirtalis - Common Garter snake',
-                       'Storeria dekayi -DeKay\'s Brown snake', 'Patherophis obsoletus - Black Rat snake',
-                       'Cortalus atrox - Western Diamondback rattlesnake']
-            with st.spinner("ခွဲခြားနေသည်........"):
-                Ans = prediction(photo, "snake_species.h5")
-            string = class_names[np.argmax(Ans)]
-            st.header(string)
-            st.write(Ans)
+
+            res = Ans['name'].iat[0];
+            st.header(res)
+
+            links = {
+            'Nerodia sipedon - Northern Watersnake': 'https://en.wikipedia.org/wiki/Common_watersnake',
+            'Thamnophis sirtalis - Common Garter snake': 'https://en.wikipedia.org/wiki/Common_garter_snake',
+            "Storeria dekayi - DeKay's Brown snake": 'https://en.wikipedia.org/wiki/DeKay%27s_brown_snake',
+            'Patherophis obsoletus - Black Rat snake': 'https://en.wikipedia.org/wiki/Pantherophis_obsoletus',
+            'Crotalus atrox - Western Diamondback rattlesnake': 'https://en.wikipedia.org/wiki/Western_diamondback_rattlesnake',
+            'Others': '',
+            }
+
+            is_venomous = {
+            'Nerodia sipedon - Northern Watersnake': "<span style='color: green'>Non-venomous</span>",
+            'Thamnophis sirtalis - Common Garter snake': "<span style='color: darkorange'>Mildly Venomous</span>",
+            "Storeria dekayi - DeKay's Brown snake": "<span style='color: green'>Non-venomous</span>",
+            'Patherophis obsoletus - Black Rat snake': "<span style='color: green'>Non-venomous</span>",
+            'Crotalus atrox - Western Diamondback rattlesnake': "<span style='color: red'>Venomous</span>",
+            'Others': 'Sorry... The species in the image cannot be detected by our model.',
+            }
+    
+
+            st.markdown(is_venomous[res], unsafe_allow_html=True)
+            if res != 'Others':
+                st.write("For More Information. Check out this [link]("+links[res]+")")
+            st.markdown("<span style='color: darkorange'>Warning: A snake bite should always be taken to a hospital. Snake bites require hospitalization and close monitoring of the patient, whether the sanke is venomous or not.</span>", unsafe_allow_html=True)
+
+            st.markdown("""---""")
+            st.header("Confidence Chart")
+            fig, ax = plt.subplots()
+
+            ax  = sns.barplot(y = 'name',x='values', data = Ans,order = Ans.sort_values('values',ascending=False).name)
+
+            ax.set(xlabel='Confidence %', ylabel='Species')
+
+            for i in ax.containers:
+                ax.bar_label(i,)
+
+            st.pyplot(fig)
         else:
             st.warning("ပုံတင်ခြင်း (သို့မဟုတ်) ပုံရိုက်ခြင်းကို အရင်ပြုလုပ်ပါ ")
     if st.sidebar.button("ဆက်သွယ်ရန် "):
