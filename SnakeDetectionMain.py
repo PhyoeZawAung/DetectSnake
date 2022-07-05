@@ -84,7 +84,7 @@ def main():
                 ax.bar_label(i,)
 
             st.pyplot(fig)
-       if st.sidebar.button("Contect Developer"):
+    if st.sidebar.button("Contect Developer"):
         contact()
         
 def contact():
