@@ -16,6 +16,18 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import load_model
 
 def main():
+     st.set_page_config(
+        page_title="Snake Classification By Team PeniCol",
+        page_icon="🐍",
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items={
+
+            'About': """This app is made especially for farmer and can use for educational purpose. 
+            This app can classify the major 5 snake species.
+            We also develop for the rest of species. We never stop develop.""",
+        }
+    )
     st.title("Snake Species Classification")
     st.header("this is header")
     st.subheader('This is a subheader')
@@ -37,8 +49,51 @@ def main():
         st.header(string)
         st.write(Ans)
         
+    if st.sidebar.button("Contect Developer"):
+        contact()
         
+def contact():
 
+    form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
+     <input type="text" name="name" placeholder=" Name "required>
+     <input type="email" name="email" placeholder="Email Address">
+     <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+     <input type="hidden" name="_captcha" value="false">
+     <button type="submit">Send</button>
+     </form>
+     <style>
+
+input[type=text],input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+button[type=submit] 
+{
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover
+{
+  background-color: #45a049;
+}
+
+
+</style>
+     """
+    #st.markdown(form_submit,unsafe_allow_html=True) this is not work css of button class
+    components.html(form_submit,height =500)
 
 
 def prediction(img, weights_file):#this is copy file of road sign project
