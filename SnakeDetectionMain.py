@@ -42,7 +42,7 @@ def main():
 
 
             with st.spinner("Classifying snake specie"):
-                Ans = prediction(photo, "snake_species.h5")
+                Ans = prediction(photo, "snake_species (1).h5")
 
 
             res = Ans['name'].iat[0];
