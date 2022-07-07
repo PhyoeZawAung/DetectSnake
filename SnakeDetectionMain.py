@@ -133,7 +133,7 @@ button[type=submit]:hover
         
 
 
-@st.cache(suppress_st_warning = True )
+@st.cache(allow_output_mutation=True)
 def loadModel():
     model = keras.models.load_model("snake_species (1).h5")
     return model
