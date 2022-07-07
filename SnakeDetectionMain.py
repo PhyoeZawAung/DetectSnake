@@ -44,7 +44,7 @@ def main():
 
 
             with st.spinner("Classifying snake specie"):
-                Ans = prediction(photo, "snake_species (1).h5")
+                Ans = prediction(photo)
 
 
             res = Ans['name'].iat[0];
@@ -134,7 +134,11 @@ button[type=submit]:hover
 
 
 @st.cache(suppress_st_warning = True )
-def prediction(img, weights_file):#this is copy file of road sign project
+def loadModel():
+    model = keras.model.load_model("snake_species (1).h5")
+    return model
+
+def prediction(img):#this is copy file of road sign project
 
     class_names = [
             "Nerodia sipedon - Northern Watersnake",
@@ -145,7 +149,7 @@ def prediction(img, weights_file):#this is copy file of road sign project
             'Others'
         ]
     # Load the model
-    model = keras.models.load_model(weights_file)
+    model = loadModel()
    
     # Create the array of the right shape to feed into the keras model
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
