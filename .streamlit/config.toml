@@ -19,3 +19,5 @@ textColor="#262730"
 font = "sans serif"
 [runner]
 fasrRerun = true
+[server]
+maxUploadSize = 50
