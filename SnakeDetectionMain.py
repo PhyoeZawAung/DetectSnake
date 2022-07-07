@@ -133,7 +133,7 @@ button[type=submit]:hover
         
 
 
-@st.warning
+@st.cache(suppress_st_warning = True )
 def prediction(img, weights_file):#this is copy file of road sign project
 
     class_names = [
