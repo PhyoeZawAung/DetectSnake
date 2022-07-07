@@ -135,7 +135,7 @@ button[type=submit]:hover
 
 @st.cache(suppress_st_warning = True )
 def loadModel():
-    model = keras.model.load_model("snake_species (1).h5")
+    model = keras.models.load_model("snake_species (1).h5")
     return model
 
 def prediction(img):#this is copy file of road sign project
