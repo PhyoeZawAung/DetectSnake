@@ -88,7 +88,7 @@ def main():
             st.pyplot(fig)
     if st.sidebar.button("Contect Developer"):
         contact()
-        
+@st.cache(suppress_st_warning = True )
 def contact():
     form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
      <input type="text" name="name" placeholder=" Name "required>
@@ -133,7 +133,7 @@ button[type=submit]:hover
         
 
 
-
+@st.warning
 def prediction(img, weights_file):#this is copy file of road sign project
 
     class_names = [
