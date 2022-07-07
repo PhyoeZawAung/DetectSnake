@@ -21,3 +21,5 @@ font = "sans serif"
 fasrRerun = true
 [server]
 maxUploadSize = 50
+[browser]
+gatherUsageStats = false
