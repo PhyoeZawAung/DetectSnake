@@ -88,7 +88,7 @@ def main():
             st.pyplot(fig)
     if st.sidebar.button("Contect Developer"):
         contact()
-@st.cache(suppress_st_warning = True )
+@st.cache()
 def contact():
     form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
      <input type="text" name="name" placeholder=" Name "required>
