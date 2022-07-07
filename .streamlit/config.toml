@@ -4,7 +4,7 @@
 primaryColor="#00ff5e"
 
 # Background color for the main content area
-backgroundColor="#00ff5e"
+backgroundColor="#000000"
 
 # Background color for sidebar and most interactive widgets
 secondaryBackgroundColor="#e0e0ef"
@@ -17,3 +17,5 @@ textColor="#262730"
 # Font family for all text in the app, except code blocks. One of "sans serif", "serif", or "monospace".
 # Default: "sans serif"
 font = "sans serif"
+[runner]
+fasrRerun = true
