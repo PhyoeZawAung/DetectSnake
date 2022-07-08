@@ -113,7 +113,7 @@ input[type=text],input[type=email], select, textarea {
 button[type=submit] 
 {
   background-color: #D1E5F3;
-  color: white;
+  color: black;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
