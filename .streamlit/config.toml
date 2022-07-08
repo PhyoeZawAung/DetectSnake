@@ -1,7 +1,7 @@
 [theme]
 base = "light"
 textColor="#2E34DA"
-
+primaryColor = "#2E34DA"
 
 
 # Font family for all text in the app, except code blocks. One of "sans serif", "serif", or "monospace".
