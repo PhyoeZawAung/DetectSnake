@@ -31,9 +31,9 @@ def main():
         }
     )
     upload_option = st.sidebar.selectbox("ပုံတင်ရန်ရွေးချယ်ပါ‌",
-                                         ('ပုံကိုတင်မည် ', 'ပုံရိုက်မည် '))
+                                         ('ပုံကိုတင်မည် 📁', 'ပုံရိုက်မည် 🖼️'))
 
-    if upload_option == 'ပုံကိုတင်မည် ':
+    if upload_option == 'ပုံကိုတင်မည် 📁':
         photo = upload_photo()
     else:
         photo = shoot_photo()
@@ -91,9 +91,9 @@ def main():
 
 def contact():
     form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
-     <input type="text" name="name" placeholder="အမည် "required>
-     <input type="email" name="email" placeholder="အီးမေး">
-     <textarea id="subject" name="subject" placeholder="အကြောင်းအရာ......." style="height:200px"></textarea>
+     <input type="text" name="name" placeholder=" 🙍🏽‍♂️ အမည် "required>
+     <input type="email" name="email" placeholder=" ✉️ အီးမေး">
+     <textarea id="subject" name="subject" placeholder=" 📝 အကြောင်းအရာ......." style="height:200px"></textarea>
      <input type="hidden" name="_captcha" value="false">
      <button type="submit">ပေးပို့မည် </button>
      </form>
