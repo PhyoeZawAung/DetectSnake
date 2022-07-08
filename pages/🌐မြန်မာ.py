@@ -130,7 +130,7 @@ button[type=submit]:hover
      """
     # st.markdown(form_submit,unsafe_allow_html=True)
     components.html(form_submit, height=500)
-@st.experimental.singleton
+@st.experimental_singleton
 def loadModel():
     model = keras.models.load_model("snake_species (1).h5")
     return model
