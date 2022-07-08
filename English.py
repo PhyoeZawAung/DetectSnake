@@ -122,7 +122,7 @@ button[type=submit]
 
 button[type=submit]:hover
 {
-  background-color: #45a049;
+  background-color: #2E34DA;
 }
 
 
