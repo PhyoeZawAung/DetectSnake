@@ -41,7 +41,7 @@ def main():
         if photo is not None:
             print("Classifing the snake photo in the model")
             with st.spinner("ခွဲခြားနေသည်......"):
-                Ans = prediction(photo, "snake_species (1).h5")
+                Ans = prediction(photo)
 
 
             res = Ans['name'].iat[0];
@@ -130,9 +130,11 @@ button[type=submit]:hover
      """
     # st.markdown(form_submit,unsafe_allow_html=True)
     components.html(form_submit, height=500)
-
-
-def prediction(img, weights_file):#this is copy file of road sign project
+@st.experimental.singleton
+def loadModel():
+    model = keras.models.load_model("snake_species (1).h5")
+    return model
+def prediction(img):#this is copy file of road sign project
 
     class_names = [
             "Nerodia sipedon - Northern Watersnake",
@@ -143,7 +145,7 @@ def prediction(img, weights_file):#this is copy file of road sign project
             'Others'
         ]
     # Load the model
-    model = keras.models.load_model(weights_file)
+    model = loadModel()
    
     # Create the array of the right shape to feed into the keras model
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
