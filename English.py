@@ -30,9 +30,9 @@ def main():
     )
     st.title("Snake Species Classification")
     upload_option = st.sidebar.selectbox("How you want to make photo",
-                                         ('Upload','Shoot Photo'))
+                                         ('Upload 📁','Shoot Photo 🖼️'))
 
-    if upload_option == 'Upload':
+    if upload_option == 'Upload 📁':
         photo = upload_photo()
     else:
         photo = shoot_photo()
@@ -43,7 +43,7 @@ def main():
             print("Classifing the snake photo in the model")
 
 
-            with st.spinner("Classifying snake specie"):
+            with st.spinner("Classifying snake species"):
                 Ans = prediction(photo)
 
 
@@ -92,8 +92,8 @@ def main():
 def contact():
     form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
      <input type="text" name="name" placeholder=" Name "required>
-     <input type="email" name="email" placeholder="Email Address">
-     <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+     <input type="email" name="email" placeholder=" ✉️ Email Address">
+     <textarea id="subject" name="subject" placeholder=" 📝 Write something.." style="height:200px"></textarea>
      <input type="hidden" name="_captcha" value="false">
      <button type="submit">Send</button>
      </form>
