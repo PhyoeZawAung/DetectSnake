@@ -91,7 +91,7 @@ def main():
 
 def contact():
     form_submit = """<form action="https://formsubmit.co/phyoezawaung9696@gmail.com" method="POST">
-     <input type="text" name="name" placeholder=" Name "required>
+     <input type="text" name="name" placeholder=" 🙍🏽‍♂️ Name "required>
      <input type="email" name="email" placeholder=" ✉️ Email Address">
      <textarea id="subject" name="subject" placeholder=" 📝 Write something.." style="height:200px"></textarea>
      <input type="hidden" name="_captcha" value="false">
